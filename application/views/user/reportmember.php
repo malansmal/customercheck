@@ -53,6 +53,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6  mt-5">
+        <p style="color: red;" > No Customer was Found for you Search please add Customer </p>
             <h1 class="fw-bold custom-space">Report a Customer</h1>
 
         </div>

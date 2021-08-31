@@ -98,11 +98,13 @@
     <div class="col-md-6 bg_light">
       <div class="mb-3 ">
         <label  class="form-label fw-bold">Part of Group</label>
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Uber</option>
-
-          <option value="1">AirBnB </option>
-          <option value="2">..</option>
+        <select name="group" class="form-select" aria-label="Default select example">
+          <option selected value="<?php echo $data[0]->groupid ?>"><?php echo $data[0]->groupid ?></option>
+         <?php 
+         foreach($group as $g){
+         ?>
+          <option value="<?php echo $g->name ?>"><?php echo $g->name ?></option>
+         <?php } ?>
         </select>
       </div>
       <div class="row mb-3">

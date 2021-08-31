@@ -27,6 +27,7 @@
                   <th>Surname</th>
                   <th>Number</th>
                   <th>Email</th>
+                  <th>Group</th>
                   <th>Action</th>
                   
                   
@@ -44,7 +45,7 @@
                   <td><?php echo $d->surname ?></td>
                   <td><?php echo $d->contactnumber ?></td>
                   <td><?php echo $d->email ?></td>
-               
+                  <td><?php echo $d->groupid ?></td>
                   
                   <td>
                   <!-- <div class="btn-group">

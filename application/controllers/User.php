@@ -18,8 +18,7 @@ class User extends CI_Controller{
         
         if(isset($_POST['submit'])){
 
-
-            $data = $this->Customer_model->customer_search($_POST['firstname'],$_POST['lastname'],$_POST['phone'],$_POST['address']);
+            $data = $this->Customer_model->customer_search($_POST['firstname'],$_POST['lastname'],$_POST['phone'],$_POST['address'],$_POST['dob']);
             if(count($data)==1){
 
 
@@ -101,6 +100,7 @@ redirect('User/dashboard');
     }
     public function profile(){
         $this->load->model('User_model');
+        $this->load->model('Group_model');
             
         
         
@@ -120,6 +120,7 @@ redirect('User/dashboard');
                 'email'=>$_SESSION['email'],
                 'username'=>$_POST['username'],
                 'password'=>$_POST['password'],
+                'groupid'=>$_POST['group'],
                              );
                 
         
@@ -137,7 +138,9 @@ redirect('User/dashboard');
         
         }
         $dat=$this->User_model->user_data_by_email($_SESSION['email']);
+        $gr=$this->Group_model->group_data();
 $result['data']=$dat;
+$result['group']=$gr;
        $this->load->view('user/profile',$result);
         
     }

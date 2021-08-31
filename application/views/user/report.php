@@ -104,7 +104,7 @@
                     <button type="button" class="btn btn-danger  custom_p_size"><?php echo $rep->reporttype?></button>
                     <p class="text-secondary custom_p_size mt-3">Service Date: <?php echo $rep->servicedate ?></p>
                     <p class="fw-bold custom_p_size">Service Provided<br>
-                        Remodeling Painting</p>
+                    <?php echo $rep->service ?></p>
 
 
 

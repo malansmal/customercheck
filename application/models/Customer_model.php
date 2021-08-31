@@ -62,10 +62,10 @@ parent::__construct();
                 }
 
 
-                public function customer_search($name,$lastname,$phone,$address){
+                public function customer_search($name,$lastname,$phone,$address,$dob){
 
 
-                    $query=$this->db->query("select * from customer where (name='$name' and surname='$lastname') or (customertel='$phone' or address='$address')");
+                    $query=$this->db->query("select * from customer where (name='$name' and surname='$lastname') or customertel='$phone' or address='$address' or dob='$dob'");
                     return $query->result();
             
                     }

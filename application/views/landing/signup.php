@@ -38,7 +38,7 @@
           <a class="nav-link" href="contact_us.html">Contact Us</a>
         </li>
         <li class="nav-item">
-          <a class="anchorstyle" href="login.html">
+          <a class="anchorstyle" href="<?php echo base_url();?>index.php/Auth/login">
             <button type="button" class="btn btn-success fw-bold">Login</button>
           </a>
         </li>
@@ -160,12 +160,12 @@
         <div class="col-md-4">
           <div class="mb-3 custom-space6">
             <label  class="form-label fw-bold">Part of Group</label>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Uber</option>
-
-              <option value="1">AirBnB </option>
-              <option value="2">..</option>
-            </select>
+            <select name="group" class="form-select" aria-label="Default select example">
+           <?php foreach($group as $g){
+         ?>
+          <option value="<?php echo $g->name ?>"><?php echo $g->name ?></option>
+         <?php } ?>
+        </select>
           </div>
 
         </div>

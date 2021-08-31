@@ -75,6 +75,7 @@ public function register(){
  
   $this->load->model('Auth_model');
   $this->load->model('User_model');
+  $this->load->model('Group_model');
   if(isset($_POST['submit'])){
     $this->form_validation->set_rules('email','Email','required');
     $this->form_validation->set_rules('password','Password');
@@ -104,7 +105,7 @@ public function register(){
       'password'=>$_POST['password'],
       'username'=>$_POST['username'],
       'contactnumber'=>$_POST['contactnumber'],
-  
+      'groupid'=>$_POST['group'],
       
       
                    );
@@ -118,7 +119,9 @@ public function register(){
     
     }
     }
-$this->load->view('landing/signup');
+    $gr=$this->Group_model->group_data();
+    $result['group']=$gr;
+$this->load->view('landing/signup',$result);
 
 
 }

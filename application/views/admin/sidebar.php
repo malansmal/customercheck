@@ -39,7 +39,7 @@
  
 
        
- <li><a href="<?php echo base_url();?>index.php/Admin/expense"><i class="fa fa-edit"></i> <span>Expense details</span></a></li>
+ <li><a href="<?php echo base_url();?>index.php/Admin/group"><i class="fa fa-edit"></i> <span>Group details</span></a></li>
  <li><a href="<?php echo base_url();?>index.php/Admin/capital"><i class="fa fa-edit"></i> <span>Capital details</span></a></li>
  
       </ul>

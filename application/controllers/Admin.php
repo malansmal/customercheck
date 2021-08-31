@@ -50,14 +50,7 @@ class Admin extends CI_Controller{
           public function dashboard(){
   
     
-            // $this->load->model('Expense_model');
-            // $this->load->model('Employee_model');
-            // $this->load->model('Company_model');
-            // $this->load->model('Companydeduction_model');
-            // $this->load->model('Invoice_model');
-            // $this->load->model('Companyinvoice_model');
-            // $this->load->model('Salaries_model');
-            // $this->load->model('Extra_model');
+          
         
         
             $this->load->view('admin/header');
@@ -102,8 +95,92 @@ class Admin extends CI_Controller{
 
 
 
+        public function group(){
 
 
+          $this->load->model('Group_model');
+         
+         
+      if(isset($_POST['submit'])){
+      
+                  $result = $this->Group_model->delete_group($_POST['groupid']);
+      
+                  if(isset($result)){
+                      $this->session->set_flashdata('success','<div class="alert alert-success">Expense Deleted</div>');
+                    
+                    }
+                    else{
+                       $this->session->set_flashdata('error','<div class="alert alert-danger">Expense not Deleted</div>');
+                    }
+              }
+      
+      
+          $dat=$this->Group_model->group_data();
+       
+     
+      
+      $result1['data']=$dat;
+      
+      
+          $this->load->view('admin/header');
+           
+          $this->load->view('admin/topbar');
+          $this->load->view('admin/sidebar');
+          $this->load->view('admin/group',$result1);
+          $this->load->view('admin/footer');
+      
+      
+      }
+      
+      public function addgroup(){
+
+
+        $this->load->model('Group_model');
+       
+        if(isset($_POST['submit'])){
+    
+           $this->form_validation->set_rules('name','Name','required');
+          
+       
+            
+           
+            if($this->form_validation->run() == TRUE){
+               
+        
+                $data=array(
+                'name'=>$_POST['name'],
+             
+    
+                             );
+                
+        
+        
+                    $result = $this->Group_model->insert_group($data);
+        
+                    if(isset($result)){
+                        $this->session->set_flashdata('success','<div class="alert alert-success">Group Added</div>');
+                      
+                      }
+                      else{
+                         $this->session->set_flashdata('error','<div class="alert alert-danger">Group not Added</div>');
+                      }
+                }
+        
+        }
+        
+      
+       
+    //    print_r($result['data']);
+       
+        $this->load->view('admin/header');
+         
+        $this->load->view('admin/topbar');
+        $this->load->view('admin/sidebar');
+        $this->load->view('admin/addgroup');
+        $this->load->view('admin/footer');
+    
+    
+    }
 
 
 

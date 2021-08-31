@@ -53,7 +53,7 @@
 
         <div class="col-md-3 bg_light custom-space custom-width col-12">
             <h5 class="mt-3">Account</h5>
-
+ 
             <a href="<?php echo base_url();?>index.php/User/profile"><h6 class="text-success">My Profile</h6></a>
             <a href="<?php echo base_url();?>index.php/User/dashboard"><h6 class="text-success">Search</h6></a>
            <a href="<?php echo base_url();?>index.php/User/mymembership"><h6 class="text-success">My Membership</h6></a>
@@ -80,7 +80,11 @@
                         <input type="text" name="phone" class="form-control bg_light" id="pno" placeholder="(515) 555-0100">
 
                     </div>
+                    <div class="mb-3">
+                        <label for="pno" class="form-label fw-bold">Date of Birth</label>
+                        <input type="date" name="dob" class="form-control bg_light" id="pno" >
 
+                    </div>
                 </div>
                 <div class="col-md-6 pstart-0">
                     <div class="mb-3 margin_top_custom4">

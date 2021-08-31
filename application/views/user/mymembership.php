@@ -24,23 +24,23 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="about_us.html">About Us</a>
+                    <a class="nav-link active" aria-current="page" href="<?php echo base_url();?>index.php/User/profile">My Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="how_its_works.html">How It Works</a>
+                    <a class="nav-link" href="<?php echo base_url();?>index.php/User/mymembership">My Membership</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="faq.html">FAQ</a>
+                    <a class="nav-link" href="<?php echo base_url();?>index.php/User/dashboard">Search</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact_us.html">Contact Us</a>
+                    <a class="nav-link" href="<?php echo base_url();?>index.php/User/membershipinvoice">Membership Invoice</a>
                 </li>
                 <li class="nav-item">
-                    <a class="anchorstyle" href="login.html">
-                    <button type="button" class="btn btn-success fw-bold">Login</button>
-                        </a>
+                    <a class="anchorstyle" href="<?php echo base_url();?>index.php/User/logout">
+                        <button type="button" class="btn btn-success fw-bold">Logout</button>
+                    </a>
                 </li>
 
             </ul>
