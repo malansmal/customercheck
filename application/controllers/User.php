@@ -80,6 +80,12 @@ redirect('User/dashboard');
 
 
         if(isset($_POST['submit'])){
+            $type=$_POST['reason'];
+            if(isset($type[1])){
+
+            }else{
+                $type[1]=' ';
+            }
             $data=array(
                 'customerid'=>$_POST['customerid'],
             'reportdate'=>date('y-m-d'),
@@ -88,8 +94,8 @@ redirect('User/dashboard');
             'service'=>$_POST['service'],
             'servicedate'=>$_POST['servicedate'],
             'userid'=>$_POST['useremail'],
-            'reporttype'=>$_POST['reason'],
-        
+            'reporttype'=>$type[0],
+            'reporttype2'=>$type[1],
             
             
                          );

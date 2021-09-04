@@ -12,6 +12,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
+  
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 
 </head>
@@ -109,13 +111,16 @@
 
 
                 </div>
-                <!-- <div class="col-md-4 ps-0 pe-0">
-                    <button type="button" class="btn btn-warning  custom_p_size">Unreasonable Expectations</button>
+                <?php 
+                if($rep->reporttype2){
+                ?>
+                <div class="col-md-4 ps-0 pe-0">
+                    <button type="button" class="btn btn-warning  custom_p_size"><?php echo $rep->reporttype2?></button>
 
 
 
-                </div> -->
-
+                </div>
+<?php } ?>
 
             </div>
             <?php
@@ -196,21 +201,21 @@
           
 
             <div class="mb-3">
-                <label for="date" class="form-label fw-bold">Report Type</label>
-                <select name="reason" id="" class="form-control">
-                <option value="Never Paid">Never Paid</option>
-                <option value="Demanded Refund">Demanded Refund</option>
-                <option value="Small Claims Action">Small Claims Action</option>
-                <option value="Unreasonable Expectation">Unreasonable Expectation</option>
-                <option value="Time Waster">Time Waster</option>
-                <option value="Gives Falls Reviews">Gives Falls Reviews</option>
-                <option value="Property Damage">Property Damage</option>
-                <option value="Insurance Claim">Insurance Claim</option>
-                <option value="Good Customer">Good Customer</option>
+                <label for="date" class="form-label fw-bold">Report Type</label> (Select 2)<br>
+                <!-- <select name="reason" id="" class="form-control"> -->
+                <input type="checkbox" class="a" name="reason[]" value="Never Paid">Never Paid<br>
+                <input type="checkbox" class="a" name="reason[]" value="Demanded Refund">Demanded Refund<br>
+                <input type="checkbox" class="a" name="reason[]" value="Small Claims Action">Small Claims Action<br>
+                <input type="checkbox" class="a" name="reason[]" value="Unreasonable Expectation">Unreasonable Expectation<br>
+                <input type="checkbox" class="a" name="reason[]" value="Time Waster">Time Waster<br>
+                <input type="checkbox" class="a" name="reason[]" value="Gives Falls Reviews">Gives Falls Reviews<br>
+                <input type="checkbox" class="a" name="reason[]" value="Property Damage">Property Damage<br>
+                <input type="checkbox" class="a" name="reason[]" value="Insurance Claim">Insurance Claim<br>
+                <input type="checkbox" class="a" name="reason[]" value="Good Customer">Good Customer<br>
            
                 
                 
-                </select>
+                <!-- </select> -->
             </div>
         </div>
     </div>
@@ -287,7 +292,15 @@
     </div>
 
 </div>
+<script>
+            
+            var limit = 2;
+$('input.a').on('change', function(evt) {
+   if($(this).siblings(':checked').length >= limit) {
+       this.checked = false;
+   }
 
+});
+            </script>
 </body>
-
 </html>
