@@ -8,7 +8,9 @@
                 <div class="row">
                     <div class="col-md-1 col-2"></div>
                     <div class="col-md-4 col-6">
+						<a href="<?php echo base_url();?>index.php/Auth/register">
                         <button type="button" class="btn btn-success fw-bold  custom_fs custom_button">Get Started</button>
+						</a>
                     </div>
                 </div>
             </div>
@@ -23,7 +25,7 @@
 <div class="container-fluid">
     <div class="row mt-5">
         <div class="col-md-6 ">
-            <h3 class=" fw-lighter custom-space">Customer Check helps businesses avoid bad customers and tenants with secure search and reporting tools</h3>
+            <h3 class=" fw-lighter custom-space">Customer Check helps avoid bad customers and tenants with secure search and reporting tools</h3>
             <img class="custom-space" src="<?php echo base_url() ?>assets/landing/images/img1.png" alt="img" width="90%">
         </div>
 
@@ -49,9 +51,11 @@
 
         <div class="col-md-6 text-center mt-4 ">
             <h5>Learn more about how to use Customer Check</h5>
-
+			
+			 <a href="<?php echo base_url();?>index.php/Welcome/how_it_work">
             <button type="button" class="btn btn-success fw-bold  mt-2 custom-button2">Let's Go</button>
-
+			</a>
+			
 
         </div>
         <div class="col-md-1 borderleft">
@@ -59,9 +63,9 @@
         </div>
         <div class="col-md-5 text-center mt-4 ms-0">
             <h5>Is this Legal and really anonymous?</h5>
-
+			 <a href="<?php echo base_url();?>index.php/Welcome/faq">
             <button type="button" class="btn btn-success fw-bold  mt-2 custom-button2">Learn More</button>
-
+			</a>
 
         </div>
 
@@ -78,8 +82,9 @@
             <div class="col-md-1"></div>
             <div class="col-md-5 text-white margin_top_custom">
                 <h3 class="fw-bold">Join now and access thousands of reviews</h3>
+				<a href="<?php echo base_url();?>index.php/Auth/register">
                 <button type="button" class="btn btn-success fw-bold  mt-2 custom-button2">Join Now</button>
-
+				</a>
             </div>
 
 
@@ -97,7 +102,9 @@
                 <p>Your customers can write and read reviews on dozens of sites to share their experiences and make informed decisions.  As a member of Customer check, you can do the same – only in reverse.</p>
                 <p>All businesses have a list of customers who they love and those they never want to do business with again, so we created a site that allows them to securely and anonymously post reviews on their customers. Since 2018 we have helped businesses across the US report and avoid bad customers without any problems. In fact, not one business has complained of being exposed. Our site is secure, private, and best of all – the customer never knows they were reviewed and because this is a private network we never have to inform them since the reviews are not for public viewing.</p>
                 <p>We all want to do business with excellent customers while trying to avoid the bad ones.  Until now it was like navigating a minefield blindfolded.  Knowing who the best customers are in your neighborhood has never been easier to find!  You can safely share your experiences with other members because everything you do on our site is kept entirely confidential and anonymous.  We never share any information with anyone outside of the membership.  Ever.</p>
-                <button type="button" class="btn btn-success fw-bold  mt-2 custom-button2">Join Now</button>
+                <a href="<?php echo base_url();?>index.php/Auth/register">
+				<button type="button" class="btn btn-success fw-bold  mt-2 custom-button2">Join Now</button>
+				</a>
             </div>
 
         </div>
@@ -130,7 +137,7 @@
             <h3 class="fw-bold custom-space blue_color">Have questions or want to know more?</h3>
 
             <div class="col-md-10 mt-3 custom-space">
-                <p>Call us now at 515-650-5530 or send an email to learn how you can start posting reviews on past customers.</p>
+                <p>Contact us today for further information.</p>
             </div>
 
 
