@@ -20,6 +20,69 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('landing/index');
+redirect('Welcome/home');
+
 	}
+	
+	public function home()
+	{
+		$this->load->view('landing/header');
+		$this->load->view('landing/index');
+		$this->load->view('landing/footer');
+
+	}
+	public function about_us()
+	{
+		$this->load->view('landing/header');
+		$this->load->view('landing/about_us');
+		$this->load->view('landing/footer');
+	}
+	public function how_it_work()
+	{
+		$this->load->view('landing/header');
+		$this->load->view('landing/how_it_work');
+		$this->load->view('landing/footer');
+	}
+	public function faq()
+	{
+		$this->load->view('landing/header');
+		$this->load->view('landing/faq');
+		$this->load->view('landing/footer');
+	}
+
+	public function contact_us()
+	{
+		$this->load->view('landing/header');
+		$this->load->view('landing/contact_us');
+		$this->load->view('landing/footer');
+	}
+	public function sendmail(){
+  $this->load->library('email');
+if(isset($_POST['submit'])){
+  $sub="Contact Us Form";
+  $message=$_POST['message'];
+  $fname=$_POST['fname'];
+  $lname=$_POST['lname'];
+  $phone=$_POST['phone'];
+  $email=$_POST['email'];
+    $option=$_POST['option1'];
+  $m="Name: ".$fname." ".$lname." <br> Email: ".$email." <br> Phone: ".$phone." <br> message: ".$message." <br> Option: ".$option;
+// echo $m;
+$from="";
+$to="info@customercheck.co.za";
+
+$this->email->from('webmaster@customercheck.co.za');
+$this->email->to($to);
+$this->email->subject($sub);
+$this->email->message($m);
+
+if($this->email->send()){
+     
+}
+} 
+		$this->load->view('landing/header');
+		$this->load->view('landing/thankyou');
+		$this->load->view('landing/footer');
+}
+
 }

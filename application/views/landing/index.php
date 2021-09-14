@@ -1,53 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Home</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/landing/css/style.css">
-    <script src="https://kit.fontawesome.com/81f686e84d.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
 
-
-</head>
-<body>
-
-<nav class="navbar navbar-expand-lg navbar-light bg1">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><img src="<?php echo base_url() ?>assets/landing/images/logo.png" alt="logo"> </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="about_us.html">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="how_its_works.html">How It Works</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="faq.html">FAQ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact_us.html">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="anchorstyle" href="<?php echo base_url();?>index.php/Auth/login">
-                    <button type="button" class="btn btn-success fw-bold">Login</button>
-                        </a>
-                </li>
-
-            </ul>
-
-        </div>
-    </div>
-</nav>
 <div class="bg1">
     <div class="container-fluid">
         <div class="row">
@@ -190,7 +141,7 @@
 
 </div>
 <div class="container-fluid">
-    <form>
+    <form method="POST" action="sendmail">
         <div class="row">
             <div class="col-md-6">
                 <div class="row ">
@@ -199,12 +150,12 @@
 
                         <div class="mb-3">
                             <label for="name" class="form-label fw-bold">Name</label>
-                            <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
+                            <input required type="text" name="fname" class="form-control" id="name" aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text">First</div>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label fw-bold">Email Address</label>
-                            <input type="email" class="form-control" id="email" >
+                            <input required type="email" name="email" class="form-control" id="email" >
                         </div>
 
 
@@ -214,12 +165,12 @@
                     <div class="col-md-5">
                         <div class="mb-3 margin_top_custom2">
 
-                            <input type="text" class="form-control"  aria-describedby="emailHelp2">
+                            <input required type="text" name="lname" class="form-control"  aria-describedby="emailHelp2">
                             <div id="emailHelp2" class="form-text">Last</div>
                         </div>
                         <div class="mb-3 ">
                             <label for="phoneno" class="form-label fw-bold">Phone Number</label>
-                            <input type="text" class="form-control" id="phoneno" >
+                            <input required type="text" name="phone" class="form-control" id="phoneno" >
 
                         </div>
 
@@ -228,11 +179,11 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-10">
                         <label  class="form-label fw-bold">Preferred Method of Contact</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Email</option>
+                        <select name="option1" class="form-select" aria-label="Default select example">
+                            <option value="email" selected>Email</option>
 
-                            <option value="1">Phone</option>
-                            <option value="2">No Preference</option>
+                            <option value="Phone">Phone</option>
+                            <option value="No Preference">No Preference</option>
                         </select>
                     </div>
                     <div class="col-md-1"></div>
@@ -240,9 +191,9 @@
                     <div class="col-md-10 mt-3">
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label fw-bold">Message</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                            <textarea required name="message" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
                         </div>
-                        <button type="button" class="btn btn-success fw-bold custom-button2 ">Submit</button>
+                        <button type="submit" name="submit" class="btn btn-success fw-bold custom-button2 ">Submit</button>
                     </div>
 
                 </div>
@@ -275,50 +226,3 @@
 
 </div>
 <!--footer-->
-<div class="bg1">
-  <div class="container-fluid ">
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-3 col-6">
-        <div class="row mt-4">
-          <div class="col-md-2 ps-0 pe-0 col-3">
-            <img src="<?php echo base_url() ?>assets/landing/images/logo2.png" alt="logo" width="100%">
-
-          </div>
-          <div class="col-md-2 text-white mt-3 ps-0 pe-0 col-3">
-            <p>Connect</p>
-
-          </div>
-          <div class="col-md-1 mt-3   text-white col-2">
-            <i class="fa fa-facebook  fa-lg" aria-hidden="true"></i>
-
-          </div>
-          <div class="col-md-1 mt-3   text-white col-2">
-            <i class="fa fa-linkedin  fa-lg" aria-hidden="true"></i>
-
-          </div>
-
-        </div>
-
-      </div>
-      <div class="col-md-6 col-1"></div>
-      <div class="col-md-2 mt-4 col-5">
-          <a href="membership.html">
-        <button type="button" class="btn btn-success fw-bold  ">Join Now</button>
-              </a>
-      </div>
-
-    </div>
-    <div class="row text-center text-white">
-      <p class=" font-size-custom">© Customer Check 2021. Site by<b> Farmboy. Privacy Policy. Terms of Service.</b></p>
-
-    </div>
-
-
-  </div>
-
-</div>
-
-</body>
-
-</html>

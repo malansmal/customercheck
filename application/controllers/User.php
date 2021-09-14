@@ -6,7 +6,7 @@ class User extends CI_Controller{
 
     public function dashboard(){
      
-
+        $this->load->view('user/header');
         $this->load->view('user/search');
 
     }
@@ -29,16 +29,24 @@ $this->load->view('user/report',$result);
 }
 elseif(count($data)>1){
     $result['data']=$data;
-    $this->load->view('user/matches',$result);
+    $_SESSION['result']=$result;
+ redirect('User/found');
 }
 else{
     $data1=$_POST;
     $result1['data']=$data1;
+    $this->load->view('user/header');
     $this->load->view('user/reportmember',$result1);
+    $this->load->view('user/footer');
 }
         }
-
     } 
+    public function found(){
+        $result=$_SESSION['result'];
+        $this->load->view('user/header');
+    $this->load->view('user/matches',$result);
+    $this->load->view('user/footer');
+    }
     public function mul_report(){
         $this->load->model('User_model');
             
@@ -49,6 +57,7 @@ else{
         $result['data']=$data;
         $result['report']=$report;
         $this->load->view('user/report',$result);
+        
         }
     }
     public function insert_customer(){
@@ -147,23 +156,26 @@ redirect('User/dashboard');
         $gr=$this->Group_model->group_data();
 $result['data']=$dat;
 $result['group']=$gr;
-       $this->load->view('user/profile',$result);
+      
+        $this->load->view('user/header');
+        $this->load->view('user/profile',$result);
+        $this->load->view('user/footer');
         
     }
     public function mymembership(){
-
+        $this->load->view('user/header');
         $this->load->view('user/mymembership');
-        
+        $this->load->view('user/footer');
     }
     public function membershipinvoice(){
-
+        $this->load->view('user/header');
        $this->load->view('user/membershipinvoice');
-        
+       $this->load->view('user/footer');
     }
     public function myreports(){
-
+        $this->load->view('user/header');
         $this->load->view('user/myreports');
-        
+        $this->load->view('user/footer');
     }
     public function logout(){
 
@@ -172,9 +184,9 @@ $result['group']=$gr;
         
     }
     public function packages(){
-
+        $this->load->view('user/header');
         $this->load->view('user/packages');
-        
+        $this->load->view('user/footer');
     }
 
     public function editcompany(){
@@ -193,9 +205,9 @@ $result['group']=$gr;
 
 
 
-      
+        $this->load->view('user/header');
         $this->load->view('user/reportmember');
-
+        $this->load->view('user/footer');
 
 
     }

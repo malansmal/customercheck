@@ -1,53 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Search</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/landing/css/style.css">
-    <script src="https://kit.fontawesome.com/81f686e84d.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
 
-
-</head>
-<body >
-
-<nav  class="navbar navbar-expand-lg navbar-light bg1">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><img src="<?php echo base_url() ?>assets/landing/images/logo.png" alt="logo"> </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="about_us.html">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="how_its_works.html">How It Works</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="faq.html">FAQ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact_us.html">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="anchorstyle" href="">
-                        <button type="button" class="btn btn-success fw-bold">Report</button>
-                    </a>
-                </li>
-
-            </ul>
-
-        </div>
-    </div>
-</nav>
 <div class="container-fluid custom_height">
     <div class="row  mt-4">
 
@@ -72,12 +23,12 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="cname" class="form-label fw-bold">Customer Name</label>
-                        <input type="text" name="firstname" class="form-control bg_light" id="cname" placeholder="First Name">
+                        <input required type="text" name="firstname" class="form-control bg_light" id="cname" placeholder="First Name">
 
                     </div>
                     <div class="mb-3">
                         <label for="pno" class="form-label fw-bold">Phone Number</label>
-                        <input type="text" name="phone" class="form-control bg_light" id="pno" placeholder="(515) 555-0100">
+                        <input required type="text" name="phone" class="form-control bg_light" id="pno" placeholder="(515) 555-0100">
 
                     </div>
                     <div class="mb-3">
@@ -89,7 +40,7 @@
                 <div class="col-md-6 pstart-0">
                     <div class="mb-3 margin_top_custom4">
 
-                        <input type="text" name="lastname" class="form-control bg_light" placeholder="Last Name">
+                        <input type="text" required name="lastname" class="form-control bg_light" placeholder="Last Name">
 
                     </div>
                     <div class="mb-3 margin_top_custom5">

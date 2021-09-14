@@ -21,7 +21,7 @@
 
 <nav  class="navbar navbar-expand-lg navbar-light bg1">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><img src="<?php echo base_url() ?>assets/landing/images/logo.png" alt="logo"> </a>
+        <a class="navbar-brand" href="<?php echo base_url();?>index.php/User/dashboard"><img src="<?php echo base_url() ?>assets/landing/images/logo.png" alt="logo"> </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -69,8 +69,9 @@
                     </h6>
                 </div>
                 <div class="col-md-5">
-
+                <a target="_blank" href="mailto:info@customercheck.com?subject=Please change or update information for <?php echo $data[0]->name.' '.$data[0]->surname;?>&body=Please provice reason">
                     <h6><u>Request a correction for <?php echo $data[0]->name.' '.$data[0]->surname;?></u></h6>
+                    </a>
                     <a class="anchorstyle" href="">
                         <button type="button" class="btn btn-success custom-button fw-bold mt-4">Add Report</button>
                     </a>
@@ -89,8 +90,8 @@
         </div>
         <div class="col-md-6 bg_light div_scroll">
            <?php 
-           
-           foreach($report as $rep){
+           if($report){
+                          foreach($report as $rep){
            
            ?>
            
@@ -124,6 +125,8 @@
 
             </div>
             <?php
+            }}else{
+                echo "No Report found";
             }
             ?>
             <!-- <div class="row mt-2">
@@ -242,7 +245,37 @@
         </div>
 
     </div>
+    <div class="row">
+            <div class="col-md-8 bg1 custom-space2 mt-5">
+                <h5 class="text-white  blue_color  mt-2 fw-bold">Content Guidelines</h5>
+            </div>
+            <div class="col-md-8 custom-space2 p-0">
+                <div class=" scroll ">
+                    <p>[Last Updated on April 18, 2019.]</p>
 
+                    <p class="fw-bold">General Guidelines</p>
+                    <p>customer check allpws registred users, includung therir agents and assigns, to contribute different kinds of content including reviews,photos, videos, tips, and more. playing nice isn't brain surgery, but just in case, we've put together these general guidelines, Please also read the below for specfic types of content that might contribute to the site.</p>
+                    <ul>
+                        <li><b>Privacy:</b>Don't publicize other meeber's private information. Please dont post close-up photos or videos of other persons without theirs permission, Unless you hace chosen to expose your bussiness information. Customer check will never publicize your information to an other registered member.We allow you to remain anonymous to the other members to protect you from exposing your data to potential competiors
+                        </li>
+                        <li><b>Intellectual property:</b>Don't swipe content from other sites or users. You're smaret cokkie, so write your own rewiews and take your own photos and videos please!</li>
+                        <li><b>Demanding payment:</b>you should not removing ot posting your review as a way to extract payment from a business, regradless of the circumstances.</li>
+                    </ul>
+                    <p>Copyright © 2018 Customer Check LLC., PO Box 397, Norwalk, IA  50211</p>
+                </div>
+
+                <p class="mt-3 fw-bold">I have read and understand the submission Guidelines</p>
+                <div class="form-check  mt-3">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        <p>I Agree</p>
+                    </label>
+                </div>
+             
+
+            </div>
+
+        </div>
 
 
 </div>
@@ -250,6 +283,7 @@
 <!--footer-->
 <div class="bg1">
     <div class="container-fluid mt-5">
+    
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-3 col-6">
@@ -282,9 +316,10 @@
             </div>
 
         </div>
+        
         </form>
         <div class="row text-center text-white">
-            <p class=" font-size-custom">© Customer Check 2021. Site by<b> Farmboy. Privacy Policy. Terms of Service.</b></p>
+            <p class=" font-size-custom">© Customer Check 2021.<b> Privacy Policy. Terms of Service.</b></p>
 
         </div>
 

@@ -40,35 +40,15 @@ else{
 
 }
 }
-
+$this->load->view('landing/header');
 $this->load->view('landing/login');
-
-
-
-
-}
-
-
-public function test(){
- $this->load->model('Auth_model');
-
-
- $data=$this->Auth_model->data();
-$i=1;
-foreach ($data as $key) {
- $data=array('username'=>$key->username,
-
-                                      );
-
-	$this->Auth_model->edit($i,$data);
-$i++;
-}
-
-
+$this->load->view('landing/footer');
 
 
 
 }
+
+
 
 
 public function register(){
@@ -121,7 +101,151 @@ public function register(){
     }
     $gr=$this->Group_model->group_data();
     $result['group']=$gr;
+    $this->load->view('landing/header');
 $this->load->view('landing/signup',$result);
+$this->load->view('landing/footer');
+
+}
+
+
+
+public function forgot_password(){
+  $this->load->library('email');
+
+  if(isset($_POST['submit'])){
+    $this->form_validation->set_rules('email','Email','required');
+   
+    
+    $email=$_POST['email'];
+   
+    
+    
+    if($this->form_validation->run() == TRUE){
+      $where="email= '$email' ";
+      $this->db->select('*');
+    $this->db->from('users');
+    $this->db->where($where);
+    $query=$this->db->get();
+    
+    $user=$query->row();
+    
+    if(isset($user)){
+      $_SESSION['email']=$user->email;
+    
+
+      $number=rand(1000,10000);
+$_SESSION['code']=$number;
+
+
+$to=$email;
+ $message= "Click to change Password<br>https://customercheck.co.za/index.php/Auth/change_password?email=".$to."&code=".$number;
+$this->email->from('webmaster@customercheck.co.za');
+$this->email->to($to);
+$this->email->subject('Change Your Password');
+$this->email->message($message);
+
+if($this->email->send()){
+   
+}
+
+
+
+
+
+
+
+
+      
+   
+      $this->session->set_flashdata('success','<div class="alert alert-success">Please check your Email </div>');
+    }
+    else{
+       $this->session->set_flashdata('error','<div class="alert alert-danger">Wrong Email </div>');
+    }
+    
+    
+    
+    }
+    }
+  
+  $this->load->view('landing/header');
+  $this->load->view('landing/forgot_password');
+  $this->load->view('landing/footer');
+ 
+ 
+ 
+ 
+ }
+
+ public function change_password(){
+  $this->load->model('User_model');
+
+if(isset($_SESSION['code'])){
+  if(isset($_POST['submit'])){
+
+
+    if($_GET['code']==$_SESSION['code']){
+$password=$_POST['password'];
+$data=array(
+  'email'=>$_GET['email'],
+'password'=>$password,
+           );
+$report = $this->User_model->edit_user_by_id($data); 
+unset($_SESSION['code']);
+$this->session->set_flashdata('success','<div class="alert alert-success">Password successfully Changed </div>');
+redirect('Auth/login');
+
+          }
+          else{
+
+echo "Link is Expired";
+
+          }
+
+
+
+  }
+
+ $this->load->view('landing/header');
+ $this->load->view('landing/change_password');
+ $this->load->view('landing/footer');
+
+
+ }
+ else{
+  echo "Link is Expired";
+ }
+}
+
+
+
+
+
+
+
+
+public function sendmail(){
+  $this->load->library('email');
+
+  $sub="Contact Us Form";
+  $message=$_POST['message'];
+  $fname=$_POST['fname'];
+  $lname=$_POST['lname'];
+  $phone=$_POST['phone'];
+  $sub=$_POST['email'];
+    $option=$_POST['option1'];
+  $m="Name: ".$fname." ".$lname."<br>Email: ".$email."<br>Phone: ".$phone."<br>message: ".$message."<br>Option: ".$option;
+$from="";
+$to="muhammadhassan0566@gmail.com";
+
+$this->email->from('webmaster@customercheck.co.za');
+$this->email->to($to);
+$this->email->subject($sub);
+$this->email->message($m);
+
+if($this->email->send()){
+    echo "send";
+}
 
 
 }
