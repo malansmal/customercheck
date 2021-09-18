@@ -68,13 +68,21 @@
                     <h6 class="text-secondary"><?php echo $data[0]->address?>
                     </h6>
                 </div>
+				<div class="col-md-4">
+                    <h5 class="fw-bold">DOB</h5>
+                    <h6 class="text-secondary"><?php echo $data[0]->dob?>
+                    </h6>
+                </div>
+				
+				
+				
                 <div class="col-md-5">
-                <a target="_blank" href="mailto:info@customercheck.com?subject=Please change or update information for <?php echo $data[0]->name.' '.$data[0]->surname;?>&body=Please provice reason">
+                <a target="_blank" href="mailto:info@customercheck.com?subject=Please change or update information for <?php echo $data[0]->name.' '.$data[0]->surname;?>&body=Please update the following information for this customer:">
                     <h6><u>Request a correction for <?php echo $data[0]->name.' '.$data[0]->surname;?></u></h6>
                     </a>
-                    <a class="anchorstyle" href="">
+                    <!-- <a class="anchorstyle" href="">
                         <button type="button" class="btn btn-success custom-button fw-bold mt-4">Add Report</button>
-                    </a>
+                    </a> -->
                 </div>
 
             </div>
@@ -104,10 +112,12 @@
 
                 </div>
                 <div class="col-md-3 pe-0 ps-0">
-                    <button type="button" class="btn btn-danger  custom_p_size"><?php echo $rep->reporttype?></button>
-                    <p class="text-secondary custom_p_size mt-3">Service Date: <?php echo $rep->servicedate ?></p>
-                    <p class="fw-bold custom_p_size">Service Provided<br>
-                    <?php echo $rep->service ?></p>
+					<button type="button" class="btn btn-info"><?php echo $rep->reporttype?></button>
+                    <!-- <button type="button" class="btn btn-danger  custom_p_size"><?php echo $rep->reporttype?></button> -->
+                    <p class="text-secondary custom_p_size mt-3">Service Date: <?php echo $rep->servicedate ?>
+                    <p class="fw-bold custom_p_size">Service Provided: <p class="text-secondary custom_p_size mt-3"><?php echo $rep->service ?>                               </P>
+					
+                    </p>
 
 
 
@@ -116,7 +126,8 @@
                 if($rep->reporttype2){
                 ?>
                 <div class="col-md-4 ps-0 pe-0">
-                    <button type="button" class="btn btn-warning  custom_p_size"><?php echo $rep->reporttype2?></button>
+					<button type="button" class="btn btn-info"><?php echo $rep->reporttype2?></button>
+                    <!-- <button type="button" class="btn btn-warning  custom_p_size"><?php echo $rep->reporttype2?></button>-->
 
 
 
@@ -204,7 +215,7 @@
           
 
             <div class="mb-3">
-                <label for="date" class="form-label fw-bold">Report Type</label> (Select 2)<br>
+                <label for="date" class="form-label fw-bold">Report Type</label> (Select Max 2 Report Types)<br>
                 <!-- <select name="reason" id="" class="form-control"> -->
                 <input type="checkbox" class="a" name="reason[]" value="Never Paid">Never Paid<br>
                 <input type="checkbox" class="a" name="reason[]" value="Demanded Refund">Demanded Refund<br>
@@ -226,7 +237,7 @@
         <div class="col-md-4  custom-space">
            
             <div class="mb-3">
-                <label for="date" class="form-label fw-bold">Service</label>
+                <label for="date" class="form-label fw-bold">Service Provided</label>
                 <input type="text" name="service" class="form-control" id="date" >
             </div>
         </div>

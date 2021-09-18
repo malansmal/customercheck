@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6  mt-5">
-        <p style="color: red;" > No Customer was Found for you Search please add Customer </p>
+       <div <p <h3 style="color: red;" > No customer was found for you search please Add a Customer </h3></p></div>
             <h1 class="fw-bold custom-space">Add a Customer</h1>
 
         </div>
