@@ -24,16 +24,33 @@
 
                         <div class="mb-3">
                             <label for="name" class="form-label fw-bold">First Name*</label>
-                            <input type="text" name="fname" placeholder="<?php echo $data['firstname'] ?>" value="<?php echo $data['firstname'] ?>" class="form-control" id="name" aria-describedby="emailHelp">
-
+                            <?php 
+                            if(isset($data['firstname'])){
+                            
+                            ?>
+                            <input disabled required type="text" name="fname1" placeholder="<?php echo $data['firstname'] ?>" value="<?php echo $data['firstname'] ?>" class="form-control" id="name" aria-describedby="emailHelp">
+    <input type="hidden" name="fname" value="<?php echo $data['firstname'] ?>">
+    <?php }
+    else{ ?>
+                              <input required type="text" name="fname" placeholder="Enter First Name"  class="form-control" id="name" aria-describedby="emailHelp">
+<?php } ?>  
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="mb-3 ">
                             <label  class="form-label fw-bold">Last Name*</label>
-
-                            <input type="text" name="lname" placeholder="<?php echo $data['lastname'] ?>" value="<?php echo $data['lastname'] ?>" class="form-control" >
-
+                            <?php 
+                            if(isset($data['lastname'])){
+                            
+                            ?>
+        
+                            <input disabled required type="text" name="lname" placeholder="<?php echo $data['lastname'] ?>" value="<?php echo $data['lastname'] ?>" class="form-control" >
+                            <input type="hidden" name="lname" value="<?php echo $data['lastname'] ?>">
+                            <?php }
+    else{ ?>
+                            <input required type="text" name="lname" placeholder="Enter Last Name"  class="form-control" >
+<?php } ?>  
+   
                         </div>
 
                     </div>
@@ -54,12 +71,12 @@
 
                         <div class="mb-3">
                             <label for="pno" class="form-label fw-bold">Primary Phone Number*</label>
-                            <input type="text" name="phone" placeholder="<?php echo $data['phone'] ?>" value="<?php echo $data['phone'] ?>" class="form-control" id="pno" >
+                            <input minlength="10"  type="text" name="phone" placeholder="Enter Phone" class="form-control" id="pno" >
                             <div class="col-md-5 ">
 
 <div class="mb-3">
     <label for="pno" class="form-label fw-bold">dob*</label>
-    <input type="date" name="dob"  class="form-control" id="pno" >
+    <input  type="date" name="dob"  max="<?php echo date("Y-m-d"); ?>" required  class="form-control" id="pno" >
 
 </div>
 </div>
@@ -69,7 +86,7 @@
                         <div class="mb-3 ">
                             <label  class="form-label fw-bold">Secondary Phone Number*</label>
 
-                            <input type="text" name="phone2" class="form-control" >
+                            <input minlength="10"  type="text" name="phone2" class="form-control" >
 
                         </div>
 
@@ -80,7 +97,7 @@
                         <div class="mb-3  custom-space_9_5">
                             <label  class="form-label fw-bold">Full Address*</label>
 
-                            <input type="text" name="address" placeholder="<?php echo $data['address'] ?>" value="<?php echo $data['address'] ?>" class="form-control" >
+                            <input  type="text" name="address" placeholder="Enter Address"   id="ad" class="form-control" >
 
                         </div>
                     </div>
@@ -124,3 +141,14 @@
     </form>
 
 </div>
+
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCDOXSX2fbSRHbszDzW-M7Jf6IqaNuSzQ&libraries=places&callback=auto">
+</script>
+<script>
+function auto(){
+    var input=document.getElementById('ad');
+    var autocomplete= new google.maps.places.Autocomplete(input);
+
+
+}</script>

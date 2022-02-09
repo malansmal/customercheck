@@ -32,7 +32,7 @@ parent::__construct();
         public function group_data(){
 
 
-            $query=$this->db->query("select * from groups");
+            $query=$this->db->query("select * from groups ORDER BY id DESC");
             return $query->result();
     
             }

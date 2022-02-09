@@ -32,7 +32,7 @@ parent::__construct();
         public function customer_data(){
 
 
-            $query=$this->db->query("select * from customer");
+            $query=$this->db->query("select * from customer ORDER BY id DESC");
             return $query->result();
     
             }
@@ -78,13 +78,18 @@ parent::__construct();
                     if($dob==''){
                         $dob='*';
                     }
-                    $query=$this->db->query("select * from customer where (name='$name' and surname='$lastname') or customertel='$phone' or address='$address' or dob='$dob'");
+                    $query=$this->db->query("select * from customer where (name='$name' and surname='$lastname') or customertel='$phone' or address='$address' or dob='$dob' ORDER BY id DESC");
                     return $query->result();
             
                     }
                   
            
-
+                    public function customer_search_by_name($name,$lastname,$dob){
+                     
+                        $query=$this->db->query("select * from customer where name='$name' and surname='$lastname' and surname='$lastname'");
+                        return $query->result();
+                
+                        }
                   
                    
                             public function customer_count(){

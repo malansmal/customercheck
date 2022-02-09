@@ -42,7 +42,7 @@ parent::__construct();
         public function users_data(){
 
 
-            $query=$this->db->query("select * from users");
+            $query=$this->db->query("select * from users ORDER BY id DESC");
             return $query->result();
     
             }

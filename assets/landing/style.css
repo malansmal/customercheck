@@ -31,6 +31,10 @@ body{
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
+.b-rad
+{
+    border-radius: 50px !important;
+}
 .btn-success{
     border-radius: 50px !important;
     padding: 6px 25px !important;

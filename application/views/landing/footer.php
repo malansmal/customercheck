@@ -13,13 +13,13 @@
 
           </div>
           <div class="col-md-1 mt-3   text-white col-2">
-            <i class="fa fa-facebook  fa-lg" aria-hidden="true"></i>
-
-          </div>
-          <div class="col-md-1 mt-3   text-white col-2">
-            <i class="fa fa-linkedin  fa-lg" aria-hidden="true"></i>
-
-          </div>
+                    <a href="linkedin.com">  <i class="fa fa-facebook  fa-lg" aria-hidden="true"></i>
+                    </a>
+                    </div>
+                    <div class="col-md-1 mt-3   text-white col-2">
+                     <a href="linkedin.com">   <i class="fa fa-linkedin  fa-lg" aria-hidden="true"></i>
+                     </a>
+                    </div>
 
         </div>
 

@@ -53,7 +53,7 @@ public function insert_user($data){
         public function get_manager(){
 
     
-            $query=$this->db->query("select * from manager");
+            $query=$this->db->query("select * from manager ORDER BY id DESC");
             return $query->result();
             
 

@@ -78,15 +78,29 @@ else{
             
             
                          );
-                         $data = $this->Customer_model->insert_user($data);
-                         $this->session->set_flashdata('success','<div class="alert alert-success">Customer Added</div>');
-redirect('User/dashboard');
+//                         $t= $this->Customer_model->customer_search_by_name($_POST['fname'],$_POST['lname'],$_POST['dob']);
+// echo "<pre>";
+// print_r($t);
+//                         echo count($this->Customer_model->customer_search_by_name($_POST['fname'],$_POST['lname'],$_POST['dob']));
+                         if(count($this->Customer_model->customer_search_by_name($_POST['fname'],$_POST['lname'],$_POST['dob']))){
+                            $this->session->set_flashdata('warning','<div class="alert alert-warning">Customer Already Exist</div>');
+                        // echo "1";
+                        redirect('User/dashboard?success=0');
+                         }else{
+
+                         
+                            $data = $this->Customer_model->insert_user($data);
+                            $this->session->set_flashdata('success','<div class="alert alert-success">Customer Added</div>');
+                            // echo "2";    
+                        }
+                        // echo "3";
+                        redirect('User/dashboard');
         }
     }
     public function insert_report(){
 
         $this->load->model('User_model');
-
+        $this->load->model('Customer_model');
 
         if(isset($_POST['submit'])){
             $type=$_POST['reason'];

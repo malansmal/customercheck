@@ -11,10 +11,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"></script>
-
+      
 
 </head>
-<body>
+<body> 
 <!--navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg1">
   <div class="container-fluid">
@@ -37,6 +37,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url();?>index.php/User/membershipinvoice">Membership Invoice</a>
                 </li>
+               
                 <li class="nav-item">
                     <a class="anchorstyle" href="<?php echo base_url();?>index.php/User/logout">
                         <button type="button" class="btn btn-success fw-bold">Logout</button>

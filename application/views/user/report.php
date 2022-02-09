@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+neve<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Report</title>
@@ -57,6 +57,7 @@
     <div class="row mt-4">
         <div class="col-md-7 custom-space">
             <h1 class="fw-bolder "><?php echo $data[0]->name.' '.$data[0]->surname;?></h1>
+            <p>Customer id: <?php echo $data[0]->id ?></p>
             <hr>
             <div class="row">
                 <div class="col-md-3">
@@ -77,7 +78,7 @@
 				
 				
                 <div class="col-md-5">
-                <a target="_blank" href="mailto:info@customercheck.com?subject=Please change or update information for <?php echo $data[0]->name.' '.$data[0]->surname;?>&body=Please update the following information for this customer:">
+                <a target="_blank" href="mailto:info@customercheck.com?subject=Please change or update information for <?php echo $data[0]->name.' '.$data[0]->surname;?>&body=Please update the following information for this customer id:<?php echo $data[0]->id; ?>">
                     <h6><u>Request a correction for <?php echo $data[0]->name.' '.$data[0]->surname;?></u></h6>
                     </a>
                     <!-- <a class="anchorstyle" href="">
@@ -107,15 +108,26 @@
                 <div class="col-md-3">
                     <h5 class="blue_color">Report #<?php echo $rep->id ?></h5>
                     <p class="text-secondary custom_p_size">Report Created
-                    <?php echo $rep->reportdate ?></p>
+                    <?php echo date("d-m-Y", strtotime($rep->reportdate)); ?></p>
 
 
                 </div>
+                <?php 
+                    if($rep->reporttype=="Good Customer"){
+                        $color="btn btn-success";
+                    }
+                    elseif($rep->reporttype=="Insurance Claim" || $rep->reporttype=="Unreasonable Expectation"){
+                        $color="btn btn-success";
+                    }else{
+                        $color="btn btn-warning";
+                    }
+                
+                ?>
                 <div class="col-md-3 pe-0 ps-0">
-					<button type="button" class="btn btn-info"><?php echo $rep->reporttype?></button>
+					<button type="button" class="<?php echo $color ?> b-rad"><?php echo $rep->reporttype?></button>
                     <!-- <button type="button" class="btn btn-danger  custom_p_size"><?php echo $rep->reporttype?></button> -->
-                    <p class="text-secondary custom_p_size mt-3">Service Date: <?php echo $rep->servicedate ?>
-                    <p class="fw-bold custom_p_size">Service Provided: <p class="text-secondary custom_p_size mt-3"><?php echo $rep->service ?>                               </P>
+                    <p class="text-secondary custom_p_size mt-3">Service Date: <?php echo date("d-m-Y", strtotime($rep->servicedate)) ?>
+                    <p class=" custom_p_size">Service Provided: <p class="text-secondary custom_p_size mt-3"><?php echo $rep->service ?>                               </P>
 					
                     </p>
 
@@ -124,9 +136,17 @@
                 </div>
                 <?php 
                 if($rep->reporttype2){
+                    if($rep->reporttype2=="Good Customer"){
+                        $color="btn btn-success";
+                    }
+                    elseif($rep->reporttype2=="Insurance Claim" || $rep->reporttype2=="Unreasonable Expectation"){
+                        $color="btn btn-warning";
+                    }else{
+                        $color="btn btn-danger";
+                    }
                 ?>
                 <div class="col-md-4 ps-0 pe-0">
-					<button type="button" class="btn btn-info"><?php echo $rep->reporttype2?></button>
+					<button type="button" class="<?php echo $color ?> b-rad"><?php echo $rep->reporttype2?></button>
                     <!-- <button type="button" class="btn btn-warning  custom_p_size"><?php echo $rep->reporttype2?></button>-->
 
 
@@ -206,7 +226,7 @@
 
             <div class="mb-3">
                 <label for="date" class="form-label fw-bold">Date of Service</label>
-                <input type="date" name="servicedate" class="form-control" id="date" >
+                <input type="date" max="<?php echo date("Y-m-d"); ?>" name="servicedate" class="form-control" id="date" >
             </div>
         </div>
     </div>
