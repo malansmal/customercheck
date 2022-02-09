@@ -33,52 +33,9 @@ foreach($data as $re){
     <tr>
       <td><?php echo $re->name ?></td>
       <td><?php echo $re->surname ?></td>
-      <td><?php
-      
-      $count= strlen($re->customertel);
-      $count=$count-2;
-      for($i=0;$i<$count;$i++){
-          
-          echo $re->customertel[$i];
-          
-      }
-      echo "XX";
-      
-    //   echo $re->customertel 
-      
-      
-      
-      ?></td>
-      <td><?php 
-        
-      $count= strlen($re->customertel2);
-      $count=$count-2;
-      for($i=0;$i<$count;$i++){
-          
-          echo $re->customertel2[$i];
-          
-      }
-      echo "XX";
-      
-    //   echo $re->customertel 
-      
-      
-      //echo $re->customertel2
-      ?>
-      </td>
-      <td><?php
-      echo "XX";
-      
-        $count= strlen( $re->address);
-      
-      for($i=2;$i<$count;$i++){
-          
-          echo $re->address[$i];
-          
-      }
-      
-     // echo $re->address
-      ?></td>
+      <td><?php echo $re->customertel ?></td>
+      <td><?php echo $re->customertel2 ?></td>
+      <td><?php echo $re->address ?></td>
       <td><?php echo $re->dob ?></td>
       <td>
       <form action="mul_report" method="POST"> 

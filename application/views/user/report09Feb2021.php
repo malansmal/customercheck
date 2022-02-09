@@ -31,18 +31,15 @@ neve<!DOCTYPE html>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<?php echo base_url();?>index.php/User/profile">My Profile</a>
                 </li>
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url();?>index.php/User/mymembership">My Membership</a>
-                </li> -->
-				<li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url();?>index.php/User/reportmember">Add Customer</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url();?>index.php/User/dashboard">Search</a>
                 </li>
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url();?>index.php/User/membershipinvoice">Membership Invoice</a>
-                </li> -->
+                </li>
                 <li class="nav-item">
                     <a class="anchorstyle" href="<?php echo base_url();?>index.php/User/logout">
                         <button type="button" class="btn btn-success fw-bold">Logout</button>
@@ -65,30 +62,11 @@ neve<!DOCTYPE html>
             <div class="row">
                 <div class="col-md-3">
                     <h5 class="fw-bold">Phone Number</h5>
-                    <h6 class="text-secondary"><?php     
-                    $count= strlen($data[0]->customertel2);
-      $count=$count-2;
-      for($i=0;$i<$count;$i++){
-          
-          echo $data[0]->customertel2[$i];
-          
-      }
-      echo "XX";
-      //echo $data[0]->customertel?></h6>
+                    <h6 class="text-secondary"><?php echo $data[0]->customertel?></h6>
                 </div>
                 <div class="col-md-4">
                     <h5 class="fw-bold">Address</h5>
-                    <h6 class="text-secondary"><?php
-                       echo "XX";
-      
-        $count= strlen( $data[0]->address);
-      
-      for($i=2;$i<$count;$i++){
-          
-          echo $data[0]->address[$i];
-          
-      }
-      //echo $data[0]->address?>
+                    <h6 class="text-secondary"><?php echo $data[0]->address?>
                     </h6>
                 </div>
 				<div class="col-md-4">
@@ -321,13 +299,8 @@ neve<!DOCTYPE html>
                 <div class="form-check  mt-3">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required checked>
                     <label class="form-check-label" for="flexCheckChecked">
-                        <p>I Also Agree</p>
+                        <p>I Agree</p>
                     </label>
-					
-					<div class="col-md-2 mt-4 col-4">
-                <a href="">
-                    <button type="submit" name="submit" class="btn btn-success fw-bold custom-button-font">Submit Customer Report</button>
-                </a>
                 </div>
              
 
@@ -369,7 +342,7 @@ neve<!DOCTYPE html>
             <div class="col-md-6 col-1"></div>
             <div class="col-md-2 mt-4 col-4">
                 <a href="">
-                    <button type="submit" name="submit" class="btn btn-success fw-bold custom-button-font">Submit Report</button>
+                    <button type="submit" name="submit" class="btn btn-success fw-bold custom-button-font">Report</button>
                 </a>
             </div>
 
